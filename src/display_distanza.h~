@@ -1,0 +1,35 @@
+#ifndef TELEOP_PANEL_H
+#define TELEOP_PANEL_H
+
+#include <ros/ros.h>
+
+#include <rviz/panel.h>
+
+class QLineEdit;
+
+namespace rviz_plugins
+{
+
+class Display_distanza: public rviz::Panel
+{
+Q_OBJECT
+
+public:
+  Display_distanza( QWidget* parent = 0 );
+
+  virtual void topic_callback(const std_msgs::String::ConstPtr& msg);
+  virtual void load( const rviz::Config& config );
+  virtual void save( rviz::Config config ) const;
+
+protected:
+  ros::NodeHandle nh;
+  ros::Subscriber sub = n.subscribe("topic_distanza", 1000, topic_callback);
+
+  QHBoxLayout* display;
+  Qstring distanza;
+
+};
+
+} // end namespace rviz_plugin
+
+#endif

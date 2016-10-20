@@ -13,23 +13,22 @@
 
 namespace rviz_plugins
 {
+	void topic_callback(const std_msgs::String::ConstPtr& msg);
 
-void topic_callback(const std_msgs::String::ConstPtr& msg);
+	class Display_distanza: public rviz::Panel
+	{
+		Q_OBJECT
 
-class Display_distanza: public rviz::Panel
-{
-Q_OBJECT
+		public:
+		Display_distanza( QWidget* parent = 0 );
 
-public:
-  Display_distanza( QWidget* parent = 0 );
+		virtual void load( const rviz::Config& config );
+		virtual void save( rviz::Config config ) const;
 
-  virtual void load( const rviz::Config& config );
-  virtual void save( rviz::Config config ) const;
-
-protected:
-  ros::NodeHandle nh;
-  ros::Subscriber sub;
-};
+		protected:
+		ros::NodeHandle nh;
+		ros::Subscriber sub;
+	};
 
 } // end namespace rviz_plugins
 

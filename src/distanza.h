@@ -38,18 +38,14 @@ namespace rviz_plugins
 
 		public:
 		Distanza();
-		~Distanza();
 
-		virtual void onInitialize();
 		virtual void activate();
 		virtual void deactivate();
 		virtual int processMouseEvent( rviz::ViewportMouseEvent& event );
-		virtual void load( const rviz::Config& config );
-		virtual void save( rviz::Config config ) const;
 
-		private:
+		protected:
 		ros::NodeHandle n;
-		ros::Publisher topic = n.advertise<std_msgs::String>("topic_distanza", 1000);
+		ros::Publisher topic;
 	};
 
 }

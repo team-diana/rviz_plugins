@@ -6,15 +6,10 @@ namespace rviz_plugins
 	Distanza::Distanza()
 	{
 		shortcut_key_ = 'd';
+
+		topic = n.advertise<std_msgs::String>("topic_distanza", 1000);
 	}
 
-	Distanza::~Distanza()
-	{
-	}
-
-	void Distanza::onInitialize()
-	{
-	}
 
 	void Distanza::activate()
 	{
@@ -35,14 +30,6 @@ namespace rviz_plugins
 			msg.data = ss.str();
 			topic.publish(msg);
 		}
-	}
-
-	void Distanza::save( rviz::Config config ) const
-	{
-	}
-
-	void Distanza::load( const rviz::Config& config )
-	{
 	}
 
 } // end namespace rviz_plugins

@@ -13,8 +13,6 @@
 
 namespace rviz_plugins
 {
-	void topic_callback(const std_msgs::String::ConstPtr& msg);
-
 	class Display_distanza: public rviz::Panel
 	{
 		Q_OBJECT
@@ -22,8 +20,8 @@ namespace rviz_plugins
 		public:
 		Display_distanza( QWidget* parent = 0 );
 
-		virtual void load( const rviz::Config& config );
-		virtual void save( rviz::Config config ) const;
+		QHBoxLayout *display;
+		QVBoxLayout *layout;
 
 		protected:
 		ros::NodeHandle nh;

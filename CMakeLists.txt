@@ -26,13 +26,13 @@ add_definitions(-DQT_NO_KEYWORDS)
 ## Here we specify which header files need to be run through "moc",
 ## Qt's meta-object compiler.
 qt4_wrap_cpp(MOC_FILES
-  src/distanza.h
-  src/display_distanza.h
+  src/distance.h
+  src/display_distance.h
 )
 
 set(SOURCE_FILES
-  src/distanza.cpp
-  src/display_distanza.cpp
+  src/distance.cpp
+  src/display_distance.cpp
   ${MOC_FILES}
 )
 

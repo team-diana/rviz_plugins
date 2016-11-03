@@ -1,25 +1,25 @@
-#include "distanza.h"
+#include "distance.h"
 
 namespace rviz_plugins
 {
 
-	Distanza::Distanza()
+	Distance::Distance()
 	{
 		shortcut_key_ = 'd';
 
-		topic = n.advertise<std_msgs::String>("topic_distanza", 1000);
+		topic = n.advertise<std_msgs::String>("distance_topic", 1000);
 	}
 
 
-	void Distanza::activate()
+	void Distance::activate()
 	{
 	}
 
-	void Distanza::deactivate()
+	void Distance::deactivate()
 	{
 	}
 
-	int Distanza::processMouseEvent( rviz::ViewportMouseEvent& event )
+	int Distance::processMouseEvent( rviz::ViewportMouseEvent& event )
 	{
 		Ogre::Vector3 pos;
 		if( context_->getSelectionManager()->get3DPoint( event.viewport, event.x, event.y, pos ) && event.leftDown())
@@ -35,4 +35,4 @@ namespace rviz_plugins
 } // end namespace rviz_plugins
 
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS(rviz_plugins::Distanza, rviz::Tool )
+PLUGINLIB_EXPORT_CLASS(rviz_plugins::Distance, rviz::Tool )

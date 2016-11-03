@@ -1,17 +1,17 @@
 <library path="lib/librviz_plugins">
-  <class name="rviz_plugins/Distanza"
-         type="rviz_plugins::Distanza"
+  <class name="rviz_plugins/Distance"
+         type="rviz_plugins::Distance"
          base_class_type="rviz::Tool">
     <description>
-      Tool che misura la distanza
+      Tool for measuring distance
     </description>
   </class>
 
-  <class name="rviz_plugins/Display_distanza"
-         type="rviz_plugins::Display_distanza"
+  <class name="rviz_plugins/Display_distance"
+         type="rviz_plugins::Display_distance"
          base_class_type="rviz::Panel">
     <description>
-      Pannello che mostra il risultato del tool "Distanza".
+      Display the distance measured by "Distance".
     </description>
   </class>
 </library>

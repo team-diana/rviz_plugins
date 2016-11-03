@@ -1,5 +1,5 @@
-#ifndef TELEOP_PANEL_H
-#define TELEOP_PANEL_H
+#ifndef DISPLAY_DISTANCE_H
+#define DISPLAY_DISTANCE_H
 
 #include <iostream>
 
@@ -13,12 +13,12 @@
 
 namespace rviz_plugins
 {
-	class Display_distanza: public rviz::Panel
+	class Display_distance: public rviz::Panel
 	{
 		Q_OBJECT
 
 		public:
-		Display_distanza( QWidget* parent = 0 );
+		Display_distance( QWidget* parent = 0 );
 
 		QHBoxLayout *display;
 		QVBoxLayout *layout;

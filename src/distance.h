@@ -1,5 +1,5 @@
-#ifndef DISTANZA_H
-#define DISTANZA_H
+#ifndef DISTANCE_H
+#define DISTANCE_H
 
 #include <iostream>
 #include <sstream>
@@ -32,12 +32,12 @@ namespace rviz
 namespace rviz_plugins
 {
 
-	class Distanza: public rviz::Tool
+	class Distance: public rviz::Tool
 	{
 		Q_OBJECT
 
 		public:
-		Distanza();
+		Distance();
 
 		virtual void activate();
 		virtual void deactivate();

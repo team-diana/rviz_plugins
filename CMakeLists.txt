@@ -39,19 +39,10 @@ set(SOURCE_FILES
 set(LIBRARY_OUTPUT_PATH ${PROJECT_DIR}/lib)
 
 ## An rviz plugin is just a shared library, so here we declare the
-## library to be called ``${PROJECT_NAME}`` (which is
-## "rviz_plugin_tutorials", or whatever your version of this project
-## is called) and specify the list of source files we collected above
-## in ``${SOURCE_FILES}``.
+## library to be called ``${PROJECT_NAME}`` and specify the list
+## of source files we collected above in ``${SOURCE_FILES}``.
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
 
-## Link the library with whatever Qt libraries have been defined by
-## the ``find_package(Qt4 ...)`` line above.
-##
-## Although this puts "rviz_plugin_tutorials" (or whatever you have
-## called the project) as the name of the library, cmake knows it is a
-## library and names the actual file something like
-## "librviz_plugin_tutorials.so", or whatever is appropriate for your
-## particular OS.
+## Link the librarys
 target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${OGRE_LIBRARIES})
 

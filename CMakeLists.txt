@@ -1,13 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rviz_plugins)
 
-find_package(catkin REQUIRED COMPONENTS
-  rviz
-)
+find_package(catkin REQUIRED COMPONENTS rviz)
 
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-)
+include_directories(${catkin_INCLUDE_DIRS})
 
 ## This plugin includes Qt widgets, so we must include Qt like so:
 find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
@@ -23,18 +19,10 @@ link_directories( ${OGRE_LIBRARY_DIRS} )
 ## etc because they can conflict with boost signals, so define QT_NO_KEYWORDS here.
 add_definitions(-DQT_NO_KEYWORDS)
 
-## Here we specify which header files need to be run through "moc",
-## Qt's meta-object compiler.
-qt4_wrap_cpp(MOC_FILES
-  src/distance.h
-  src/display_distance.h
-)
+## Here we specify which header files need to be run through "moc".
+qt4_wrap_cpp(MOC_FILES src/distance.h src/display_distance.h)
 
-set(SOURCE_FILES
-  src/distance.cpp
-  src/display_distance.cpp
-  ${MOC_FILES}
-)
+set(SOURCE_FILES src/distance.cpp src/display_distance.cpp ${MOC_FILES})
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_DIR}/lib)
 
@@ -45,4 +33,3 @@ add_library(${PROJECT_NAME} ${SOURCE_FILES})
 
 ## Link the librarys
 target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${OGRE_LIBRARIES})
-

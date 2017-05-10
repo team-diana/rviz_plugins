@@ -2,29 +2,17 @@
 
 namespace rviz_plugins
 {
-	QLabel* distance;
-
-	void topic_callback(const std_msgs::String::ConstPtr& msg)
-	{
-		distance->clear();
-		distance->setText( msg->data.c_str() ) ;
-	}
-
 	Display_distance::Display_distance( QWidget* parent ): rviz::Panel( parent )
 	{
-		sub = nh.subscribe("distance_topic", 1000, topic_callback);
+		sub = nh.subscribe("distance_topic", 1000, this.topic_callback);
 
-		display = new QHBoxLayout;
-		display -> addWidget( new QLabel( "Distance:" ));
+		new QLabel("Distance:", this);
+		distance = new QLabel("null", this);
+	}
 
-		distance = new QLabel;
-		distance -> setText("none");
-
-		display -> addWidget( distance );
-
-		layout = new QVBoxLayout;
-		layout -> addLayout( display );
-		setLayout( layout );
+	void Display_distance::topic_callback(const std_msgs::String::ConstPtr& msg)
+	{
+		distance->setText( msg->data.c_str() ) ;
 	}
 
 } // end namespace rviz_plugins

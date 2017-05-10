@@ -1,14 +1,10 @@
 #ifndef DISPLAY_DISTANCE_H
 #define DISPLAY_DISTANCE_H
 
-#include <iostream>
-
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <rviz/panel.h>
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QLabel>
 
 namespace rviz_plugins
@@ -18,14 +14,16 @@ namespace rviz_plugins
 		Q_OBJECT
 
 		public:
-		Display_distance( QWidget* parent = 0 );
-
-		QHBoxLayout *display;
-		QVBoxLayout *layout;
+			Display_distance( QWidget* parent = 0 );
 
 		protected:
-		ros::NodeHandle nh;
-		ros::Subscriber sub;
+			ros::NodeHandle nh;
+			ros::Subscriber sub;
+
+		private:
+			QLabel* distance;
+
+			void topic_callback(const std_msgs::String::ConstPtr& msg);
 	};
 
 } // end namespace rviz_plugins
